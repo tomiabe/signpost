@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
@@ -10,7 +11,8 @@ const AdminEditor: React.FC = () => {
 
   const [formData, setFormData] = useState<Partial<Guide>>({
     title: '',
-    categoryId: 'civil',
+    // Fix: 'civil' is not a valid CategoryId. Defaulting to 'family'.
+    categoryId: 'family',
     summary: '',
     estimatedCost: '',
     estimatedTime: '',
@@ -56,6 +58,7 @@ const AdminEditor: React.FC = () => {
     e.preventDefault();
     if (!formData.title || !formData.summary) return;
 
+    // Fix: Removed 'author' which is not in type Guide, and added missing 'scope'.
     const newGuide: Guide = {
       id: Date.now().toString(),
       title: formData.title,
@@ -68,7 +71,7 @@ const AdminEditor: React.FC = () => {
       requirements: formData.requirements?.filter(r => r) || [],
       steps: formData.steps || [],
       locationName: formData.locationName,
-      author: 'Signpost Studio',
+      scope: 'Lagos',
       verified: formData.verified || false,
     };
 

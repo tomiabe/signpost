@@ -12,7 +12,7 @@ const CategoryPage: React.FC = () => {
   const categoryGuides = guides.filter(g => g.categoryId === id);
 
   if (!category) {
-    return <div className="p-10 text-center">Category not found</div>;
+    return <div className="p-10 text-center text-black dark:text-white">Category not found</div>;
   }
 
   const IconComponent = (Icons as any)[category.iconName] || Icons.HelpCircle;
@@ -21,11 +21,11 @@ const CategoryPage: React.FC = () => {
     <div className="max-w-[980px] mx-auto px-6 py-12">
        {/* Header */}
        <div className="mb-12">
-          <div className="w-16 h-16 bg-white rounded-2xl shadow-sm border border-black/5 flex items-center justify-center mb-6 text-black">
+          <div className="w-16 h-16 bg-white dark:bg-black rounded-2xl shadow-sm border border-black/5 dark:border-white/10 flex items-center justify-center mb-6 text-black dark:text-white">
             <IconComponent size={32} />
           </div>
-          <h1 className="text-4xl font-bold text-black tracking-tight mb-4">{category.name}</h1>
-          <p className="text-xl text-gray-500 max-w-2xl">{category.description}</p>
+          <h1 className="text-4xl font-bold text-black dark:text-white tracking-tight mb-4">{category.name}</h1>
+          <p className="text-xl text-black/50 dark:text-white/50 max-w-2xl">{category.description}</p>
        </div>
 
        {/* Grid */}
@@ -33,26 +33,26 @@ const CategoryPage: React.FC = () => {
           {categoryGuides.length > 0 ? (
             categoryGuides.map(guide => (
               <Link key={guide.id} to={`/guide/${guide.id}`} className="group block">
-                <article className="bg-white rounded-3xl p-8 border border-black/5 h-full hover:shadow-apple-hover transition-all duration-300">
+                <article className="bg-white dark:bg-black text-black dark:text-white rounded-3xl p-8 border border-black/5 dark:border-white/10 h-full hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center gap-2 mb-4">
-                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Guide</span>
+                     <span className="text-[10px] font-bold text-black/40 dark:text-white/40 uppercase tracking-wider">Guide</span>
                   </div>
-                  <h2 className="text-2xl font-bold text-black mb-3 group-hover:text-green-600 transition-colors">
+                  <h2 className="text-2xl font-bold text-black dark:text-white mb-3 group-hover:text-brand-green transition-colors">
                     {guide.title}
                   </h2>
-                  <p className="text-gray-500 mb-6 leading-relaxed">
+                  <p className="text-black/50 dark:text-white/50 mb-6 leading-relaxed">
                     {guide.summary}
                   </p>
-                  <div className="flex items-center text-black font-semibold text-sm">
+                  <div className="flex items-center text-black dark:text-white font-semibold text-sm group-hover:text-brand-green transition-colors">
                     Read Guide <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </article>
               </Link>
             ))
           ) : (
-            <div className="col-span-full py-12 text-center bg-white rounded-3xl border border-dashed border-gray-300">
-               <p className="text-gray-500 text-lg">Coming Soon</p>
-               <p className="text-gray-400">We are currently writing guides for this category.</p>
+            <div className="col-span-full py-12 text-center bg-white dark:bg-black rounded-3xl border border-dashed border-black/20 dark:border-white/20">
+               <p className="text-black/50 dark:text-white/50 text-lg">Coming Soon</p>
+               <p className="text-black/40 dark:text-white/40">We are currently writing guides for this category.</p>
             </div>
           )}
        </div>

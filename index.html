@@ -3,54 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signpost | The Registry</title>
+    <title>Signpost | Your Digital Compass</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
-              sans: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'sans-serif'], // Apple System Font First
-              display: ['Syne', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-              mono: ['Space Grotesk', 'monospace'],
+              sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+              mono: ['Geist Mono', 'monospace'],
             },
             colors: {
               brand: {
-                // V5 Palette (Cupertino)
-                cup: {
-                  bg: '#F5F5F7',       // Apple Light Gray Background
-                  card: '#FFFFFF',     // Pure White
-                  text: '#1D1D1F',     // Apple Text Black
-                  subtext: '#86868B',  // Apple Subtext
-                  yellow: '#F5D300',   // Vibrant Safety Yellow
-                  green: '#34C759',    // System Green
-                  border: '#D2D2D7',   // Apple Border
-                },
-                
-                // Legacy Palettes
-                zinc: { 50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8', 400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46', 800: '#27272a', 900: '#18181b', 950: '#09090b' },
-                lemon: '#E7F058',
-                black: '#0a1f1c',      
-                dark: '#132a13',       
-                primary: '#1a3c34',    
-                cream: '#f2f0e9',      
-                lime: '#ccff00',       
-                orange: '#ff5f1f',     
-                almond: '#F2EFE5',
-                ink: '#1F2937',
-                indigo: '#2E3A59',
-                safety: '#FF4500',
-                tan: '#E5DCC5',
+                yellow: '#F5D300',
+                green: '#34C759',
+                blue: '#007AFF',
+                orange: '#FF9500',
+                purple: '#AF52DE',
+                pink: '#FF2D55',
+                indigo: '#5856D6',
+                red: '#FF3B30',
+                black: '#000000',
+                white: '#FFFFFF',
               }
             },
-            boxShadow: {
-              'apple': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
-              'apple-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
-              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            },
+            keyframes: {
+              fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+              slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
             }
           }
         }
@@ -58,49 +45,43 @@
     </script>
     <style>
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-        background-color: #F5F5F7;
-        color: #1D1D1F;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #ffffff;
+        color: #000000;
       }
-      
-      /* Glassmorphism utilities */
-      .glass {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+      .dark body {
+        background-color: #0c0c0c;
+        color: #ffffff;
       }
-      
-      .glass-dark {
-        background: rgba(29, 29, 31, 0.8);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
       }
-
-      /* Hide Scrollbar but keep functionality */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
+      .dark .glass-nav {
+        background: rgba(12, 12, 12, 0.8);
       }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+      .task-card-icon {
+        pointer-events: none;
+        user-select: none;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://aistudiocdn.com/react@^19.2.1",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+          "react/": "https://aistudiocdn.com/react@^19.2.1/",
+          "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+        }
+      }
+    </script>
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
+  <body class="transition-colors duration-500">
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>

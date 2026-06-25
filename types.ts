@@ -1,17 +1,22 @@
-export type CategoryId = 'civil' | 'travel' | 'transport' | 'health' | 'business' | 'education';
+export type CategoryId = 'family' | 'travel' | 'driving' | 'business' | 'ids' | 'education';
 
 export interface Category {
   id: CategoryId;
   name: string;
   description: string;
   iconName: string;
-  color: string;
+  tasks: string[];
 }
 
 export interface Step {
   title: string;
   description: string;
   tips?: string[];
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
 }
 
 export interface Guide {
@@ -26,8 +31,9 @@ export interface Guide {
   requirements: string[];
   steps: Step[];
   locationName?: string;
-  locationMapUrl?: string;
   officialLink?: string;
-  author: string;
+  signpostInsights?: string[];
+  faqs?: FAQ[];
+  scope: 'Lagos' | 'Nigeria';
   verified: boolean;
 }
