@@ -2,215 +2,250 @@ import { Category, Guide } from './types';
 
 export const CATEGORIES: Category[] = [
   {
-    id: 'civil',
-    name: 'Civil & Legal',
-    description: 'Marriage, birth certificates, changing names, and legal documentation.',
-    iconName: 'Scale',
-    color: 'bg-blue-100 text-blue-700',
+    id: 'family',
+    name: 'Family & Civil Matters',
+    description: 'Marriage, birth certificates, change of name, and registry bookings.',
+    iconName: 'Users',
+    tasks: ['Marriage', 'Birth Certificate', 'Name Change']
   },
   {
     id: 'travel',
-    name: 'Travel & Immigration',
-    description: 'Passports, visas, Yellow Fever cards, and airport procedures.',
+    name: 'Travel & Passports',
+    description: 'Passports, Yellow Fever cards, and visa procedures.',
     iconName: 'Plane',
-    color: 'bg-orange-100 text-orange-700',
+    tasks: ['Passport', 'Yellow Fever', 'Visa']
   },
   {
-    id: 'transport',
-    name: 'Transportation',
-    description: 'Driver\'s licenses, vehicle registration, LASTMA rules, and public transit.',
+    id: 'driving',
+    name: 'Driving & Transport',
+    description: 'Driver\'s licenses, vehicle papers, and Lagos transit rules.',
     iconName: 'Car',
-    color: 'bg-slate-100 text-slate-700',
-  },
-  {
-    id: 'health',
-    name: 'Healthcare',
-    description: 'Vaccinations, public hospitals, NHIS, and emergency services.',
-    iconName: 'Heart',
-    color: 'bg-red-100 text-red-700',
+    tasks: ['License', 'Registration', 'BRT']
   },
   {
     id: 'business',
-    name: 'Business & Tax',
-    description: 'CAC registration, LIRS taxes, permits, and starting a business.',
+    name: 'Business & Work',
+    description: 'CAC registration, taxes, permits, and professional documentation.',
     iconName: 'Briefcase',
-    color: 'bg-emerald-100 text-emerald-700',
+    tasks: ['CAC', 'Tax', 'Permits']
+  },
+  {
+    id: 'ids',
+    name: 'IDs & Registration',
+    description: 'NIN, Voter registration, and biometric identification.',
+    iconName: 'Fingerprint',
+    tasks: ['NIN', 'PVC', 'Biometrics']
   },
   {
     id: 'education',
-    name: 'Education',
-    description: 'WAEC, JAMB, NYSC, and university admissions.',
+    name: 'Education & Youth',
+    description: 'NYSC, national exams, and scholarship processes.',
     iconName: 'GraduationCap',
-    color: 'bg-purple-100 text-purple-700',
-  },
+    tasks: ['NYSC', 'Exams', 'Admissions']
+  }
 ];
 
 export const GUIDES: Guide[] = [
   {
     id: '1',
-    categoryId: 'civil',
-    title: 'How to Get Married at the Ikoyi Registry',
-    slug: 'marriage-registry-ikoyi-lagos',
-    summary: 'A complete step-by-step guide to statutory marriage registration in Lagos, specifically for the Federal Marriage Registry in Ikoyi.',
-    lastUpdated: 'October 15, 2023',
-    estimatedCost: '₦25,000 - ₦35,000 (Official fees)',
-    estimatedTime: '2 - 4 Weeks',
+    categoryId: 'family',
+    title: 'Marriage registration in Lagos',
+    slug: 'marriage-registration-lagos',
+    summary: 'A complete step-by-step guide to statutory marriage registration at Ikoyi Federal Registry and Local Government registries.',
+    lastUpdated: 'May 12, 2024',
+    estimatedCost: '₦27,000 - ₦35,000',
+    estimatedTime: '3 - 6 Weeks',
+    scope: 'Lagos',
+    verified: true,
     requirements: [
-      'Two (2) colored passport photographs for both parties',
+      'NIN of both parties',
+      'Two (2) colored passport photographs',
       'Birth certificates or Declaration of Age',
-      'Sworn Affidavit of Bachelorhood/Spinsterhood from a Law Court',
-      'Valid Identification (NIN, Int\'l Passport, or Driver\'s License)',
-      'Witnesses (at least one for each party on the wedding day)'
+      'Sworn Affidavit of Bachelorhood/Spinsterhood',
+      'Remita payment receipt'
     ],
     steps: [
       {
-        title: 'Create an Account on the Interior Ministry Portal',
-        description: 'Visit the official Ministry of Interior e-citation portal (ecitibiz.interior.gov.ng). Do not go to the registry physically for this step to avoid touts. Create an account using your email.',
-        tips: ['Use a valid email address you can access easily.', 'The website can be slow during peak hours.']
+        title: 'Create Account on Ministry Portal',
+        description: 'Visit ecitibiz.interior.gov.ng and create a citizen profile.',
       },
       {
-        title: 'Fill the Marriage Application Form',
-        description: 'Select "Marriage" service. Choose "Ordinary Marriage" if both parties are Nigerians residing in Nigeria. Fill in the details of the Bride and Groom accurately as they appear on your ID documents.',
+        title: 'Select Marriage Type',
+        description: 'Choose "Statutory Marriage" and select the registry (Ikoyi is common for federal validity).',
       },
       {
-        title: 'Upload Documents & Pay Fees',
-        description: 'Upload scanned copies of the required documents. Proceed to pay the statutory fee via Remita. Print your payment receipt and the acknowledgment slip.',
-      },
-      {
-        title: 'Visit the Registry for Oath Taking',
-        description: 'You will be assigned a date for the Oath Taking interview. Both parties must be present. Go with the printed forms and original documents.',
-        tips: ['Dress formally (business attire).', 'Arrive by 8:00 AM to beat the queue.']
-      },
-      {
-        title: 'The Wedding Day',
-        description: 'On your selected date, return for the final signing. Bring your witnesses. The Registrar will conduct a short ceremony, and you will sign the marriage certificate.',
+        title: 'Oath Taking',
+        description: 'You will be given a date for interview and oath. Both parties must attend physically.',
       }
     ],
-    officialLink: 'https://ecitibiz.interior.gov.ng/',
-    locationName: 'Federal Marriage Registry, Ikoyi',
-    author: 'Signpost Editorial Team',
-    verified: true,
+    signpostInsights: [
+      'Dress formally for the oath interview (business casual/traditional).',
+      'Ikoyi Registry is extremely busy; arrive by 7:30 AM regardless of your "scheduled" time.',
+      'Touts outside the gate will offer to "speed things up." Ignore them; the portal works.'
+    ],
+    faqs: [
+      { question: 'Can I do this entirely online?', answer: 'No. You must visit the registry at least twice: for oath-taking and for the ceremony.' }
+    ],
+    officialLink: 'https://ecitibiz.interior.gov.ng/'
   },
   {
     id: '2',
     categoryId: 'travel',
-    title: 'Obtaining a Yellow Fever Card (Yellow Card)',
-    slug: 'yellow-fever-card-nigeria',
-    summary: 'Required for travel to Ghana, South Africa, and many other countries. Here is how to get the new digital E-Yellow Card.',
-    lastUpdated: 'January 10, 2024',
-    estimatedCost: '₦2,000 (Payment) + Vaccination Fee (varies)',
-    estimatedTime: '1 Day',
+    title: 'Yellow Fever card in Lagos',
+    slug: 'yellow-fever-card-lagos',
+    summary: 'How to obtain the mandatory digital E-Yellow Card required for international travel.',
+    lastUpdated: 'May 15, 2024',
+    estimatedCost: '₦2,000',
+    estimatedTime: '1 - 2 Days',
+    scope: 'Lagos',
+    verified: true,
     requirements: [
       'Valid International Passport',
-      'Remita Payment Receipt',
-      'Proof of vaccination (if previously vaccinated) or receive the shot there'
+      'Remita receipt for ₦2,000',
+      'Previous vaccination proof (optional)'
     ],
     steps: [
       {
-        title: 'Pay Online via Remita',
-        description: 'Visit yellowcardnigeria.com. Click on "Register". Fill in your personal details and passport number. Proceed to pay the N2,000 fee via Remita.',
+        title: 'Online Payment',
+        description: 'Go to yellowcardnigeria.com and register. Pay via Remita.',
       },
       {
-        title: 'Visit a Port Health Services Office',
-        description: 'Take your payment receipt and passport to a Port Health Services office. In Lagos, the most popular one is at the International Airport (MMIA) or the creating office in Ikeja GRA.',
-        tips: ['The Airport office operates 24/7 but is busier.', 'The Ikeja GRA office is usually faster on weekdays.']
-      },
-      {
-        title: 'Get Vaccinated (If needed)',
-        description: 'If you haven\'t taken the shot before, they will administer it. It protects you for life. If you have an old card, show it to avoid a retake (though policies vary).',
-      },
-      {
-        title: 'Receive the E-Card',
-        description: 'They will print the card for you instantly. Ensure they scan the QR code to verify it is active before you leave.',
+        title: 'Visit Port Health Office',
+        description: 'Take your passport and receipt to the Port Health office at the International Airport or Ikeja GRA.',
       }
     ],
-    officialLink: 'https://yellowcardnigeria.com',
-    locationName: 'Port Health Services, MMIA Ikeja',
-    author: 'Travel with Tosin',
-    verified: true,
+    signpostInsights: [
+      'The vaccination takes 10 days to become "valid" for travel, so don\'t wait until your flight day.',
+      'The QR code on the card is what airlines scan. Ensure your QR code is legible before leaving the office.'
+    ],
+    officialLink: 'https://yellowcardnigeria.com'
   },
   {
     id: '3',
-    categoryId: 'transport',
-    title: 'Renewing Your Driver\'s License in Lagos',
-    slug: 'drivers-license-renewal-lagos',
-    summary: 'Don\'t let your license expire. Follow this guide to renew it without paying agents exorbitant fees.',
-    lastUpdated: 'February 2, 2024',
-    estimatedCost: '₦10,450 (3 years) or ₦15,450 (5 years)',
-    estimatedTime: '2 - 3 Weeks (for permanent card)',
-    requirements: [
-      'Expired Driver\'s License',
-      'Driving School Certificate (sometimes waived for renewal)',
-      'Eye Test Report',
-      'NIN'
-    ],
-    steps: [
-      {
-        title: 'Start Application Online',
-        description: 'Visit the FRSC website (nigeriadriverslicense.org). Click on "Renewal". Enter your license number and date of birth.',
-      },
-      {
-        title: 'Capture Biometrics (If required)',
-        description: 'If your details need updating, you may need to recapture. Otherwise, select the "Capture Bypass" option if available to save time.',
-      },
-      {
-        title: 'Payment',
-        description: 'Pay the license fee online using a debit card or bank transfer via the portal. Print the payment acknowledgement slip.',
-      },
-      {
-        title: 'Visit the VIO/FRSC Office',
-        description: 'Go to your selected processing center (e.g., Ojodu Berger, Eti-Osa). You will do a quick eye test (or bring a report) and get your biometric data verified.',
-      },
-      {
-        title: 'Collect Temporary & Permanent License',
-        description: 'You will be issued a temporary paper license immediately. The permanent plastic ID usually takes a few weeks to be ready for collection.',
-      }
-    ],
-    officialLink: 'https://www.nigeriadriverslicense.org/',
-    locationName: 'FRSC Office, Ojodu Berger',
-    author: 'Signpost Editorial Team',
-    verified: true,
-  },
-  {
-    id: '4',
     categoryId: 'travel',
-    title: 'Applying for a Nigerian International Passport',
-    slug: 'nigerian-passport-application',
-    summary: 'The comprehensive guide to applying for a fresh standard passport or renewal.',
-    lastUpdated: 'March 1, 2024',
-    estimatedCost: '₦35,000 (32 Pages) / ₦70,000 (64 Pages) - Official Rates',
-    estimatedTime: '6 - 12 Weeks',
+    title: 'Nigerian passport renewal (Lagos)',
+    slug: 'passport-renewal-nigeria-lagos',
+    summary: 'Guidelines for renewing an expired or expiring standard passport at Ikoyi, Alausa, or Festac offices.',
+    lastUpdated: 'June 01, 2024',
+    estimatedCost: '₦35,000 (32pg) / ₦70,000 (64pg)',
+    estimatedTime: '3 - 8 Weeks',
+    scope: 'Nigeria',
+    verified: true,
     requirements: [
       'NIN (Must match passport details exactly)',
-      'Birth Certificate',
-      'Local Government Certificate of Indigeneship',
-      'Two passport photographs',
-      'Guarantor\'s form (Commissioner of Oaths/Senior Civil Servant)'
+      'Old Passport booklet',
+      'Payment Summary and Receipt',
+      'Passport photographs'
     ],
     steps: [
       {
-        title: 'Apply via Immigration Portal',
-        description: 'Go to passport.immigration.gov.ng. Fill the application form. Select your processing center carefully (Ikoyi and Alausa are high traffic).',
-      },
-      {
-        title: 'Make Payment',
-        description: 'Pay online. Do not pay cash to officers. Print your Application Summary, Payment Receipt, and Guarantor\'s forms.',
-      },
-      {
-        title: 'Schedule Capture Appointment',
-        description: 'After payment, you must schedule a date for biometric capture on the portal. Print the appointment slip.',
+        title: 'Online Application',
+        description: 'Visit passport.immigration.gov.ng to fill the form and pay.',
       },
       {
         title: 'Biometric Capture',
-        description: 'Go to the immigration office on your date. Bring your file with all original documents. You will be photographed and fingerprinted.',
-        tips: ['Go with a white shirt (often required).', 'Expect to spend several hours there.']
-      },
-      {
-        title: 'Collection',
-        description: 'You will be notified via SMS when the passport is ready. Depending on the booklet availability, this can take time.',
+        description: 'Book an appointment and visit the chosen passport office for fingerprints and photos.',
       }
     ],
-    author: 'Signpost Editorial Team',
+    signpostInsights: [
+      'Do not pay any officer cash. All valid payments are online.',
+      'Wear a white shirt for your capture; most offices require this for their background setup.'
+    ],
+    officialLink: 'https://passport.immigration.gov.ng'
+  },
+  {
+    id: '4',
+    categoryId: 'driving',
+    title: 'Driver’s license application',
+    slug: 'drivers-license-application-lagos',
+    summary: 'The legal way to get your first license or renew an old one through the FRSC.',
+    lastUpdated: 'May 20, 2024',
+    estimatedCost: '₦10,350 - ₦15,000',
+    estimatedTime: '2 Weeks (Temp) / 3 Months (Perm)',
+    scope: 'Lagos',
     verified: true,
+    requirements: ['NIN', 'Learner\'s Permit (Fresh)', 'Eye Test Report', 'Certificate from Driving School'],
+    steps: [
+      { title: 'Driving School', description: 'Complete training at an accredited school.' },
+      { title: 'FRSC Portal', description: 'Apply online at nigeriadriverslicense.org.' }
+    ],
+    signpostInsights: [
+      'You will be issued a temporary license (A4 paper) valid for 60 days.',
+      'Expect the permanent plastic card to take much longer than stated.'
+    ],
+    officialLink: 'https://www.nigeriadriverslicense.org/'
+  },
+  {
+    id: '5',
+    categoryId: 'business',
+    title: 'Register a business (CAC)',
+    slug: 'cac-business-registration',
+    summary: 'A guide to registering a Business Name or Company with the Corporate Affairs Commission.',
+    lastUpdated: 'May 22, 2024',
+    estimatedCost: '₦10,000 - ₦25,000',
+    estimatedTime: '1 - 2 Weeks',
+    scope: 'Nigeria',
+    verified: true,
+    requirements: ['NIN', 'Proposed Business Names (2)', 'Valid ID of Directors'],
+    steps: [
+      { title: 'Name Reservation', description: 'Submit your preferred name on the CRP portal.' },
+      { title: 'Registration', description: 'Upload documents and pay filing fees.' }
+    ],
+    signpostInsights: [
+      'Reservation is valid for only 60 days. If you don\'t complete registration, the name becomes public again.',
+      'Check the CAC website for forbidden words (e.g. Federal, Group) before submitting.'
+    ],
+    officialLink: 'https://pre.cac.gov.ng/'
+  },
+  {
+    id: '6',
+    categoryId: 'family',
+    title: 'Birth certificate in Lagos',
+    slug: 'birth-certificate-registration',
+    summary: 'How to register a birth and get the official NPC certificate.',
+    lastUpdated: 'April 10, 2024',
+    estimatedCost: 'Free (under 18) / ₦2,000 (Late)',
+    estimatedTime: '1 Day',
+    scope: 'Nigeria',
+    verified: true,
+    requirements: ['Hospital discharge summary', 'Immunization card', 'Parent IDs'],
+    steps: [
+      { title: 'Visit NPC Office', description: 'Go to the National Population Commission office at your LG.' }
+    ],
+    signpostInsights: ['Ensure the spelling of the names is exactly as you want it on future documents like passports.']
+  },
+  {
+    id: '7',
+    categoryId: 'education',
+    title: 'NYSC registration',
+    slug: 'nysc-registration-guide',
+    summary: 'Preparing for mobilization, camp, and the service year.',
+    lastUpdated: 'May 05, 2024',
+    estimatedCost: '₦3,000 (Registration)',
+    estimatedTime: '1 Month',
+    scope: 'Nigeria',
+    verified: true,
+    requirements: ['Statement of Result', 'NIN', 'Medical Fitness Certificate'],
+    steps: [
+      { title: 'Online Registration', description: 'Register on the NYSC portal during your batch window.' }
+    ],
+    signpostInsights: ['The medical certificate must be from a government or military hospital to be accepted at camp.']
+  },
+  {
+    id: '8',
+    categoryId: 'ids',
+    title: 'Voter registration (PVC)',
+    slug: 'voter-registration-nigeria',
+    summary: 'Registering to vote or transferring your location to Lagos.',
+    lastUpdated: 'May 01, 2024',
+    estimatedCost: 'Free',
+    estimatedTime: 'Variable',
+    scope: 'Nigeria',
+    verified: true,
+    requirements: ['NIN', 'Proof of residence'],
+    steps: [
+      { title: 'INEC Portal', description: 'Check portal status; registration often happens in waves.' }
+    ],
+    signpostInsights: ['Always check your registration status on the INEC website before assuming you are on the roll.']
   }
 ];
