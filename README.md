@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Signpost
 
-# Run and deploy your AI Studio app
+Step-by-step guides for navigating Nigerian government processes — passports, licences, CAC registration, and more.
 
-This contains everything you need to run your app locally.
+**Live:** [tomiabe.github.io/signpost](https://tomiabe.github.io/signpost/)
 
-View your app in AI Studio: https://ai.studio/apps/d27e6f8b-395a-4136-8b0e-cd690b6c3e12
+---
+
+Signpost demystifies Nigerian bureaucracy. Browse categorised guides covering the key things people actually need to get done — from renewing a passport to registering a business, with clear steps, required documents, fees, and timelines.
+
+## Guides cover
+
+- **Family & Civil Matters** — marriage, birth certificates, name change
+- **Travel & Passports** — passports, yellow fever card, visa applications
+- **Driving & Transport** — driver's licence, vehicle registration
+- **Business & Work** — CAC registration, tax filing, permits
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js 18+
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+Built by [Tomi Abe Studio](https://studio.tomiabe.com)
